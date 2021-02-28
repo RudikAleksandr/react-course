@@ -5,9 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  React.createElement(App, {title: 'render React Create Element'}, null),
   document.getElementById('root')
 );
 
