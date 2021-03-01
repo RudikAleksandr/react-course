@@ -1,0 +1,44 @@
+
+.imageMovie {
+  cursor: pointer;
+  max-width: 100%;
+  height: auto;
+}
+
+.nameMovie {
+  font-size: 1.2rem;
+  color: #bbb;
+}
+
+.releaseDate {
+  display: block;
+  padding: 2px 15px;
+  float: right;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+  color: #bbb;
+}
+
+.typeMovie {
+  color: #999;
+}
+
+.itemMovie .dropdownToggle {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #2a202d;
+  border: none;
+
+}
+
+.itemMovie .dropdownToggle::after {
+  color: white;
+  vertical-align: 0;
+  margin: 0;
+  border: none;
+  font-weight: bold;
+  line-height: 2rem;
+  content: "⋮";
+}
+
