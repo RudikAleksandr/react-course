@@ -1,0 +1,15 @@
+input.form-control,
+input.form-control:focus {
+  display: initial;
+  height: 50px;
+  color: white;
+  font-size: 1.2rem;
+  background-color: #424242;
+  border-color: #424242;
+}
+
+input.form-control::-webkit-outer-spin-button,
+input.form-control::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

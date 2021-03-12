@@ -1,0 +1,11 @@
+.searchMovies .findMovieTitle {
+  text-transform: uppercase;
+  font-weight: 300;
+  color: white;
+}
+
+.searchMovies .searchInput,
+.searchMovies .searchInput:focus {
+  background-color: #1c1c1c;
+  border-color: #1c1c1c;
+}

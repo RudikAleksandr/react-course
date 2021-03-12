@@ -1,0 +1,12 @@
+.appContainer {
+  background-color: #555;
+}
+
+.mainContent {
+  background-color: #232323;
+}
+
+.filterSortRow {
+  border-bottom: 3px solid #424242;
+  box-shadow: 0 1px 0 black;
+}
