@@ -1,0 +1,30 @@
+
+.header {
+  background: linear-gradient(to top,rgba(0,0,0,.7) 0,rgba(0,0,0,.7) 100%), url('/src/assets/images/netflixMovies.jpg');
+  min-height: 400px;
+  width: 100%;
+}
+
+.netflixLink {
+  color: #f65261;
+  font-size: 1.5rem;
+}
+
+.netflixLink:hover {
+  color: #f65261;
+}
+
+.header .addMovieButton {
+  color: #f65261;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color:rgba(85, 85, 85, 0.8);
+  float: right;
+  border: none;
+}
+
+.header .addMovieButton:hover  {
+  background-color:#555;
+  color: #f65261;
+}
