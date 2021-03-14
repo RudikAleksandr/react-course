@@ -1,5 +1,6 @@
 import React from 'react';
-import { FormControl, Row, Col, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
+import { FieldInput } from '../common';
 import cn from './SearchMovies.module.css';
 
 const SearchMovies = () => (
@@ -10,15 +11,10 @@ const SearchMovies = () => (
     <Col xs="11" md="7" className="mt-4">
       <Row className="justify-content-center">
         <Col xs="8" xl="8" xxl="9">
-          <FormControl
-            className={cn.movieInput}
-            placeholder="What do you want to watch?"
-            aria-label="What do you want to watch?"
-            aria-describedby="basic-addon2"
-          />
+          <FieldInput className={cn.searchInput} placeholder="What do you want to watch?" />
         </Col>
         <Col xs="4" className="pl-0">
-          <Button variant="" className={cn.searchButton}>Search</Button>
+          <Button>Search</Button>
         </Col>
       </Row>
     </Col>

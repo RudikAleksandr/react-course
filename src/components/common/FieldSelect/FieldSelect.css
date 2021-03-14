@@ -1,0 +1,34 @@
+.form-group .dropdown-toggle,
+.form-group .dropdown-toggle:hover {
+  text-align: left;
+  background-color: #424242;
+  border-color: #424242;
+  width: 100%;
+  height: 50px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.form-group .dropdown-toggle::after {
+  position: absolute;
+  right: 15px;
+  top: 20px;
+  border-top: .5em solid;
+  border-right: .5em solid transparent;
+  border-left: .5em solid transparent;
+}
+
+.form-group .dropdown-menu {
+  width: 100%;
+  background-color: #232323;
+}
+
+.form-group .dropdown-item {
+  color: white;
+  font-size: 1.2rem;
+}
+
+.form-group .dropdown-item:hover {
+  color: white;
+  background-color: #f65261;
+}

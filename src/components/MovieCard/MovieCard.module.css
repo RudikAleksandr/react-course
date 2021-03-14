@@ -23,22 +23,42 @@
   color: #999;
 }
 
-.itemMovie .dropdownToggle {
+.movieCard:hover .dropdownToggle {
+  display: block;
+}
+
+.movieCard .dropdownToggle {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
   border-radius: 50%;
   width: 40px;
   height: 40px;
   background-color: #2a202d;
   border: none;
-
 }
 
-.itemMovie .dropdownToggle::after {
+.movieCard .dropdownToggle::after {
   color: white;
-  vertical-align: 0;
-  margin: 0;
   border: none;
   font-weight: bold;
-  line-height: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
   content: "⋮";
 }
 
+
+.movieCard .dropdownMenu {
+  background-color: #232323;
+  border-radius: 6px;
+}
+
+.movieCard .dropdownItem {
+  color: white;
+}
+
+.movieCard .dropdownItem:hover {
+  color: white;
+  background-color: #f65261;
+}

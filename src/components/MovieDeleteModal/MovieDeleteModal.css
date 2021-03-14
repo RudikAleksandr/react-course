@@ -1,0 +1,41 @@
+
+.modalDeleteMovie {
+  backdrop-filter: blur(10px);
+}
+
+.modalDeleteMovie .modal-content {
+  color: white;
+  margin: auto;
+  font-size: 1.2rem;
+  padding: 40px 40px;
+  padding-bottom: 40px;
+  background-color: #232323;
+  width: 75%;
+}
+
+.modalDeleteMovie .modal-header {
+  padding-bottom: 0;
+}
+
+.modalDeleteMovie .modal-header h2 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.modalDeleteMovie .modal-header,
+.modalDeleteMovie .modal-footer {
+  border: none;
+}
+
+.modalDeleteMovie .close {
+  position: absolute;
+  right: 22px;
+  top: 10px;
+}
+
+.modalDeleteMovie .close,
+.modalDeleteMovie .close:hover {
+  font-size: 2.4rem;
+  color: white;
+}

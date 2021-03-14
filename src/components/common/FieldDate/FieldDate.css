@@ -1,0 +1,33 @@
+
+.react-datepicker,
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__month-container,
+.react-datepicker__input-container input {
+    width: 100%;
+}
+
+.react-datepicker__input-container input {
+  color: white;
+  cursor: pointer;
+  background-image: url('./calendar.svg');
+  background-repeat: no-repeat;
+  background-size: 25px;
+  background-position: center right 15px;
+  font-size: 1.2rem;
+  padding-left: 14px;
+  background-color: #424242;
+  border-color: #424242;
+  display: block;
+  height: 50px;
+  border: none;
+  border-radius: .25rem;
+}
+
+.react-datepicker .react-datepicker__triangle {
+  display: none;
+}
+
+.react-datepicker-popper {
+  width: 50%;
+}

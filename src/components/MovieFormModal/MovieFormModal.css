@@ -1,0 +1,46 @@
+
+.modalFormMovie {
+  backdrop-filter: blur(10px);
+}
+
+.modalFormMovie .modal-content {
+  margin: auto;
+  padding: 10px 40px;
+  padding-bottom: 20px;
+  background-color: #232323;
+  width: 80%;
+}
+
+.modalFormMovie .modal-header {
+  padding-bottom: 0;
+}
+
+.modalFormMovie .modal-header h2 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+
+.modalFormMovie .modal-header,
+.modalFormMovie .modal-footer {
+  border: none;
+}
+
+.modalFormMovie .close,
+.modalFormMovie .close:hover {
+  font-size: 2.4rem;
+  color: white;
+}
+
+.modalFormMovie .form-group {
+  margin-top: 25px;
+}
+
+.modalFormMovie .movieId {
+  display: block;
+  margin: 0;
+  color: white;
+  font-weight: normal;
+}
+
+

@@ -11,10 +11,14 @@ import data from './data';
 import SearchMovies from '../SearchMovies/SearchMovies';
 class App extends Component {
   state = {
-    listMovies: data.listMovies,
+    listMovies: [],
     activeMovieType: 'all',
     activeSortType: 'release date'
   };
+
+  componentDidMount() {
+    this.setState({ listMovies: data.listMovies });
+  }
 
   handleClickMovieType = (activeMovieType) => {
     this.setState({ activeMovieType });

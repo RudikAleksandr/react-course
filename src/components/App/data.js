@@ -9,43 +9,61 @@ const data = {
       id: 1,
       photoLink: imageMovie1,
       name: 'PulpFiciton',
-      type: 'Action',
-      releaseYear: '2004'
+      genre: 'Action',
+      releaseDate: new Date(),
+      url: 'www.movie1.com',
+      overview: 'overview movie1',
+      runtime: 110
     },
     {
       id: 2,
       photoLink: imageMovie3,
       name: 'PulpFiciton',
-      type: 'Action',
-      releaseYear: '1998'
+      genre: 'Action',
+      releaseDate: new Date(),
+      url: 'www.movie2.com',
+      overview: 'overview movie2',
+      runtime: 111
     },
     {
       id: 3,
       photoLink: imageMovie2,
       name: 'PulpFiciton',
-      type: 'Action',
-      releaseYear: '2012'
+      genre: 'Action',
+      releaseDate: new Date(),
+      url: 'www.movie3.com',
+      overview: 'overview movie3',
+      runtime: 112
     },
     {
       id: 4,
       photoLink: imageMovie3,
       name: 'PulpFiciton',
-      type: 'Action',
-      releaseYear: '2010'
+      genre: 'Action',
+      releaseDate: new Date(),
+      url: 'www.movie4.com',
+      overview: 'overview movie4',
+      runtime: 113
     },
     {
       id: 5,
       photoLink: imageMovie4,
       name: 'PulpFiciton',
-      type: 'Action',
-      releaseYear: '2015'
+      genre: 'Action',
+      releaseDate: new Date(),
+      url: 'www.movie5.com',
+      overview: 'overview movie5',
+      runtime: 114
     },
     {
       id: 6,
       photoLink: imageMovie1,
       name: 'PulpFiciton',
-      type: 'Action',
-      releaseYear: '2004'
+      genre: 'Action',
+      releaseDate: new Date(),
+      url: 'www.movie6.com',
+      overview: 'overview movie6',
+      runtime: 115
     }
   ]
 }
