@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Row, Col, Button } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import cn from './FilterMovies.module.css';
@@ -7,11 +7,11 @@ const movieTypes = ['all', 'documentary', 'comedy', 'horror', 'crime'];
 
 const FilterMovies = ({ activeType = 'all', onClickMovieType }) => {
 
-  const handleClickMovieType = ({ target: { textContent } }) => {
+  const handleClickMovieType = useCallback(({ target: { textContent } }) => {
     if (movieTypes.includes(textContent)) {
       onClickMovieType(textContent);
     }
-  }
+  }, [onClickMovieType]);
 
   const movieTypeButtons = movieTypes.map((movieType, index) => (
     <Button

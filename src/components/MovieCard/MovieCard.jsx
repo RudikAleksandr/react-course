@@ -2,11 +2,15 @@ import React, { useCallback } from 'react';
 import { Row, Col, Image, Dropdown } from 'react-bootstrap';
 import cn from './MovieCard.module.css';
 
-const MovieCard = ({ movie, onSelectOption }) => {
+const MovieCard = ({ movie, onSelectOption, onSelectMovie }) => {
 
   const handleSelectOption = useCallback((optionType) => {
     onSelectOption(movie, optionType);
   }, [movie, onSelectOption]);
+
+  const handleSelectMovie = useCallback(() => {
+    onSelectMovie(movie);
+  }, [movie, onSelectMovie]);
 
   return (
     <Row className={`flex-column ${cn.movieCard}`}>
@@ -17,7 +21,12 @@ const MovieCard = ({ movie, onSelectOption }) => {
           <Dropdown.Item eventKey="DELETE" className={cn.dropdownItem}>Delete</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Image className={cn.imageMovie} src={movie.photoLink} alt="Movie screensaver" />
+      <Image
+        className={cn.imageMovie}
+        src={movie.photoLink}
+        alt="Movie screensaver"
+        onClick={handleSelectMovie}
+      />
       <Col className="pl-0 pr-0 mt-3">
         <span className={cn.nameMovie}>{movie.name}</span>
         <span className={cn.releaseDate}>{movie.releaseDate.getFullYear()}</span>

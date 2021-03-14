@@ -5,17 +5,16 @@ import cn from './SortMovies.module.css';
 
 const sortTypes = ['name', 'rating', 'release date'];
 
+const sortTypeItems = sortTypes.map((sortType, index) => (
+  <Dropdown.Item
+    className={cn.sortTypeItem}
+    key={index}
+    eventKey={sortType}>
+    {sortType}
+  </Dropdown.Item>
+));
+
 const SortMovies = ({ activeType = 'name', onSelectSortType }) => {
-
-  const sortTypeItems = sortTypes.map((sortType, index) => (
-    <Dropdown.Item
-      className={cn.sortTypeItem}
-      key={index}
-      eventKey={sortType}>
-      {sortType}
-    </Dropdown.Item>
-  ));
-
   return (
     <Row className={`align-items-center justify-content-end ${cn.sortMovies}`}>
       <span className={cn.sortByLabel}>sort by</span>
