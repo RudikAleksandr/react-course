@@ -6,7 +6,7 @@ import cn from './ListMovies.module.css';
 import MovieFormModal from '../MovieFormModal';
 import MovieDeleteModal from '../MovieDeleteModal';
 
-const ListMovies = ({ listMovies = [] }) => {
+const ListMovies = ({ listMovies = [], onSelectMovie }) => {
   const [selectedOption, setSelectedOption] = useState({});
 
   const handleSelectOption = useCallback((movie, optionType) => {
@@ -32,6 +32,7 @@ const ListMovies = ({ listMovies = [] }) => {
           {listMovies.map((movie) => (
             <MovieCard
               onSelectOption={handleSelectOption}
+              onSelectMovie={onSelectMovie}
               key={movie.id}
               movie={movie}
             />

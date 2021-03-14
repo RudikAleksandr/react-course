@@ -12,8 +12,10 @@ const data = {
       genre: 'Action',
       releaseDate: new Date(),
       url: 'www.movie1.com',
-      overview: 'overview movie1',
-      runtime: 110
+      overview: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa corporis delectus itaque earum! Rerum, atque culpa non saepe ut placeat quidem reprehenderit numquam provident nam perferendis voluptatibus, consequatur necessitatibus harum rem, et quos tenetur odit inventore iste? Quaerat sint cumque, officia aliquid, doloremque illum beatae labore dolorem porro expedita adipisci! Fugit est quos, obcaecati neque eveniet laborum iure magni minus expedita ducimus recusandae assumenda nisi consequatur corporis commodi deleniti ad eius minima. Sit, hic dicta error ratione temporibus architecto? Iure cumque molestiae sint ipsam culpa. Soluta laboriosam, velit animi alias, neque, voluptatem atque excepturi officia dolores exercitationem molestiae tempora unde.',
+      rating: 4.3,
+      runtime: 110,
+      slogan: 'slogan film'
     },
     {
       id: 2,
@@ -23,7 +25,9 @@ const data = {
       releaseDate: new Date(),
       url: 'www.movie2.com',
       overview: 'overview movie2',
-      runtime: 111
+      rating: 3.3,
+      runtime: 111,
+      slogan: 'slogan film'
     },
     {
       id: 3,
@@ -33,7 +37,9 @@ const data = {
       releaseDate: new Date(),
       url: 'www.movie3.com',
       overview: 'overview movie3',
-      runtime: 112
+      rating: 5,
+      runtime: 112,
+      slogan: 'slogan film'
     },
     {
       id: 4,
@@ -43,7 +49,9 @@ const data = {
       releaseDate: new Date(),
       url: 'www.movie4.com',
       overview: 'overview movie4',
-      runtime: 113
+      rating: 2.3,
+      runtime: 113,
+      slogan: 'slogan film'
     },
     {
       id: 5,
@@ -53,7 +61,9 @@ const data = {
       releaseDate: new Date(),
       url: 'www.movie5.com',
       overview: 'overview movie5',
-      runtime: 114
+      rating: 4.7,
+      runtime: 114,
+      slogan: 'slogan film'
     },
     {
       id: 6,
@@ -63,7 +73,9 @@ const data = {
       releaseDate: new Date(),
       url: 'www.movie6.com',
       overview: 'overview movie6',
-      runtime: 115
+      rating: 4.2,
+      runtime: 115,
+      slogan: 'slogan film'
     }
   ]
 }

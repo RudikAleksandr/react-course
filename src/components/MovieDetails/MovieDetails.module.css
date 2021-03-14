@@ -1,0 +1,66 @@
+
+.root {
+  background: linear-gradient(to top,rgba(0, 0, 0, .9) 0,rgba(0, 0, 0, .9) 100%), url('/src/assets/images/netflixMovies.jpg');
+  min-height: 400px;
+  width: 100%;
+}
+
+.netflixLink {
+  color: #f65261;
+  font-size: 1.5rem;
+}
+
+.netflixLink:hover {
+  color: #f65261;
+}
+
+.movieName {
+  font-weight: 400;
+  color: white;
+  margin-bottom: 0px;
+}
+
+.movieRating {
+  text-align: center;
+  vertical-align: middle;
+  line-height: 2.7rem;
+  font-weight: 300;
+  display: inline-block;
+  font-size: 1.5rem;
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+  color: #80b859;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.movieReleaseYear,
+.movieDuration {
+  font-size: 1.5rem;
+  color: #f65261;
+}
+
+.movieDuration {
+  margin-left: 40px;
+}
+
+.movieOverview {
+  margin-top: 15px;
+  font-size: 1.12rem;
+  color: #bbb;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.iconSearch {
+  cursor: pointer;
+}
+
+.movieSlogan {
+  font-size: 1.12rem;
+  color: #bbb;
+  font-weight: normal;
+}
