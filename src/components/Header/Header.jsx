@@ -1,19 +1,24 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useReducer } from 'react';
 import { Row, Col, Nav, Button } from 'react-bootstrap';
 import MovieFormModal from '../MovieFormModal';
 
 import cn from './Header.module.css';
 
+// Custom Hook
+const useToggle = (initialValue = false) => {
+  return useReducer((state) => !state, initialValue);
+}
+
 const Header = ({ children }) => {
-  const [isOpenAddMovie, setOpenAddMovie] = useState(false);
+  const [isOpen, toggleIsOpen] = useToggle();
 
   const handleClickAddMovie = useCallback(() => {
-    setOpenAddMovie(true);
-  }, []);
+    toggleIsOpen();
+  }, [toggleIsOpen]);
 
   const handleHideModal = useCallback(() => {
-    setOpenAddMovie(false);
-  }, []);
+    toggleIsOpen();
+  }, [toggleIsOpen]);
 
   return (
     <Col className={cn.header}>
@@ -28,7 +33,7 @@ const Header = ({ children }) => {
         </Button>
       </Row>
       {children}
-      {isOpenAddMovie &&
+      {isOpen &&
         <MovieFormModal
           isCreateMode
           onHide={handleHideModal}
