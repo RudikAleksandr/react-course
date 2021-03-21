@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Row, Dropdown, DropdownButton, ButtonGroup } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import cn from './SortMovies.module.css';
 
-const sortTypes = ['name', 'rating', 'release date'];
+const sortTypes = [{
+  label: 'genre',
+  value: 'genres',
+},
+{
+  label: 'rating',
+  value: 'vote_average',
+},
+{
+  label: 'release date',
+  value: 'release_date',
+}]
 
-const sortTypeItems = sortTypes.map((sortType, index) => (
+const sortTypeItems = sortTypes.map(({ label, value }, index) => (
   <Dropdown.Item
     className={cn.sortTypeItem}
-    key={index}
-    eventKey={sortType}>
-    {sortType}
+    key={value}
+    eventKey={value}>
+    {label}
   </Dropdown.Item>
 ));
 
-const SortMovies = ({ activeType = 'name', onSelectSortType }) => {
+const SortMovies = ({ activeType, onSelectSortType }) => {
+
+  const title = useMemo(() => {
+    return sortTypes.find(({ value }) => value === activeType).label
+  }, [activeType]);
+
   return (
     <Row className={`align-items-center justify-content-end ${cn.sortMovies}`}>
       <span className={cn.sortByLabel}>sort by</span>
@@ -23,7 +39,7 @@ const SortMovies = ({ activeType = 'name', onSelectSortType }) => {
         as={ButtonGroup}
         className={cn.sortTypeDropdown}
         variant=""
-        title={activeType}
+        title={title}
       >
         {sortTypeItems}
       </DropdownButton>

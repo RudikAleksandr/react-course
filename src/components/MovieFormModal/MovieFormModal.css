@@ -43,4 +43,11 @@
   font-weight: normal;
 }
 
+.modal-footer .errorMessage {
+  margin-right: 20px;
+  color: #f65261;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 

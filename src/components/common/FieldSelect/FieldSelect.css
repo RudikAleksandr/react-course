@@ -1,34 +1,40 @@
-.form-group .dropdown-toggle,
-.form-group .dropdown-toggle:hover {
-  text-align: left;
+.form-group div[class$="control"] {
   background-color: #424242;
   border-color: #424242;
   width: 100%;
   height: 50px;
   color: white;
+  cursor: pointer;
   font-size: 1.2rem;
+  overflow-y: auto;
 }
 
-.form-group .dropdown-toggle::after {
-  position: absolute;
-  right: 15px;
-  top: 20px;
-  border-top: .5em solid;
-  border-right: .5em solid transparent;
-  border-left: .5em solid transparent;
-}
-
-.form-group .dropdown-menu {
-  width: 100%;
+.form-group div[class$="multiValue"] {
+  border-radius: 5px;
   background-color: #232323;
+  color: white;
 }
 
-.form-group .dropdown-item {
+.form-group div[class$="multiValue"] div:nth-of-type(1) {
+  position: relative;
+  top: -3px;
+  color: white;
+}
+
+.form-group div[class$="multiValue"] div:nth-of-type(2):hover {
+  background-color: #232323;
+  color: white;
+}
+
+
+.form-group div[class$="menu"] {
+  background-color: #232323;
   color: white;
   font-size: 1.2rem;
 }
 
-.form-group .dropdown-item:hover {
+.form-group div[class$="menu"] div div:hover {
   color: white;
+  cursor: pointer;
   background-color: #f65261;
 }

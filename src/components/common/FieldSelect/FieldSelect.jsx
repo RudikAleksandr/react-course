@@ -1,21 +1,20 @@
 import React from 'react';
-import { Dropdown, FormGroup } from 'react-bootstrap';
+import { FormGroup } from 'react-bootstrap';
+import Select from 'react-select';
 import Label from '../Label';
 import './FieldSelect.css';
 
-const FieldSelect = ({ label, ...props }) => (
+const FieldSelect = ({ label, value, onChange, name, options, placeholder }) => (
   <FormGroup>
     {label && <Label text={label} />}
-    <Dropdown onSelect={props.onSelect}>
-      <Dropdown.Toggle variant="">
-        {props.value || props.placeholder}
-      </Dropdown.Toggle>
-      <Dropdown.Menu>
-        {props.options.map((option) => (
-          <Dropdown.Item key={option} eventKey={option}>{option}</Dropdown.Item>
-        ))}
-      </Dropdown.Menu>
-    </Dropdown>
+    <Select
+      isMulti="true"
+      value={value}
+      onChange={onChange}
+      name={name}
+      options={options}
+      placeholder={placeholder}
+    />
   </FormGroup>
 );
 
