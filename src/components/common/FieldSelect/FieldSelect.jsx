@@ -9,9 +9,8 @@ const FieldSelect = ({ label, value, onChange, name, options, placeholder }) => 
     {label && <Label text={label} />}
     <Select
       isMulti="true"
-      value={value}
-      onChange={onChange}
-      name={name}
+      value={value.map((item => ({ value: item, label: item })))}
+      onChange={val => onChange(name, val.map((item) => item.value))}
       options={options}
       placeholder={placeholder}
     />

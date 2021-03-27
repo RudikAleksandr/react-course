@@ -6,7 +6,7 @@ import './FieldInput.css';
 const FieldInput = ({ label, ...props }) => (
   <FormGroup>
     {label && <Label text={label} />}
-    <FormControl type="calendar" {...props} />
+    <FormControl {...props} />
   </FormGroup>
 );
 

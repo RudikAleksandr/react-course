@@ -1,9 +1,21 @@
-import React, { useCallback, useState } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
 import { createMovie, updateMovie } from '../../redux/moviesSlice';
 import { FieldInput, FieldDate, FieldSelect, Label } from '../common';
 import './MovieFormModal.css';
+
+const MovieSchema = yup.object().shape({
+  title: yup.string().required('(required)'),
+  tagline: yup.string().required('(required)'),
+  release_date: yup.date(),
+  poster_path: yup.string().url('(invalid url)').required('(required)'),
+  overview: yup.string().required('(required)'),
+  runtime: yup.number('(required number)').typeError('(must be a number)').min(0, '(min 0)').required('(required)'),
+  genres: yup.array().min(1, '(must have at least one genre)').required('(required)'),
+});
 
 const optionsGenres = [
   { value: 'Documentary', label: 'Documentary' },
@@ -14,46 +26,28 @@ const optionsGenres = [
 
 const initialMovie = {
   title: '',
+  tagline: '',
   release_date: new Date(),
-  poster_path: '', overview: '',
+  poster_path: '',
+  overview: '',
   runtime: '',
   genres: []
 };
 
-const MovieFormModal = ({ isCreateMode = false, movie = initialMovie, onHide }) => {
-  const [movieForm, setMovie] = useState(movie);
-  const [errorMessage, setErrorMessage] = useState('');
+const MovieFormModal = ({ movie = initialMovie, onHide }) => {
   const dispatch = useDispatch();
-
-  const handleChangeData = useCallback(({ target }) => {
-    setMovie((movieForm) => ({
-      ...movieForm,
-      [target.name]: target.valueAsNumber || target.value
-    }));
-  }, []);
-
-  const handleSelectData = useCallback((name) => (value) => {
-    setMovie((movieForm) => ({
-      ...movieForm,
-      [name]: Array.isArray(value) ? value.map((item) => item.value) : value,
-    }));
-  }, []);
-
-  const handleResetValues = useCallback(() => {
-    setMovie((movieForm => ({ ...initialMovie, id: movieForm.id })));
-  }, []);
-
-  const handleSaveMovie = useCallback(async () => {
-    const actionMovie = isCreateMode ? createMovie : updateMovie;
-    const data = await dispatch(actionMovie(movieForm));
-    if (data.meta.requestStatus === "rejected") {
-      setErrorMessage('Input all valid data');
-    } else {
+  const isCreateMode = useMemo(() => !movie.id, [movie.id]);
+  const formik = useFormik({
+    initialValues: movie,
+    validationSchema: MovieSchema,
+    onSubmit: (values) => {
+      const actionMovie = isCreateMode ? createMovie : updateMovie;
+      dispatch(actionMovie(values));
       onHide();
-    }
-  }, [dispatch, onHide, isCreateMode, movieForm]);
+    },
+    validateOnMount: true,
+  });
 
-  const { id, title, release_date, poster_path, overview, runtime, genres } = movieForm;
   return (
     <Modal
       centered
@@ -68,58 +62,66 @@ const MovieFormModal = ({ isCreateMode = false, movie = initialMovie, onHide }) 
         {!isCreateMode &&
           <>
             <Label text="movie id" />
-            <Label className="movieId" text={id} />
+            <Label className="movieId" text={movie.id} />
           </>
         }
         <FieldInput
-          label="title"
+          label={`title ${formik.errors.title || ''}`}
           name="title"
-          value={title}
+          value={formik.values.title}
           placeholder="Input title"
-          onChange={handleChangeData}
-        />
-        <FieldDate
-          selected={new Date(release_date)}
-          placeholderText="Select release date"
-          label="release date"
-          onChange={handleSelectData('release_date')}
+          onChange={formik.handleChange}
         />
         <FieldInput
-          label="movie url"
+          label={`tagline ${formik.errors.tagline || ''}`}
+          name="tagline"
+          value={formik.values.tagline}
+          placeholder="Input tagline"
+          onChange={formik.handleChange}
+        />
+        <FieldDate
+          label="release date"
+          name="release_date"
+          value={formik.values.release_date}
+          placeholderText="Select release date"
+          onChange={formik.setFieldValue}
+        />
+        <FieldInput
+          label={`movie url ${formik.errors.poster_path || ''}`}
           type="url"
           name="poster_path"
-          value={poster_path}
+          value={formik.values.poster_path}
+          onChange={formik.handleChange}
           placeholder="Input URL"
-          onChange={handleChangeData}
         />
         <FieldSelect
-          label="genres"
-          value={genres.map((genre => ({ value: genre, label: genre })))}
-          onChange={handleSelectData('genres')}
+          label={`genres ${formik.errors.genres || ''}`}
           name="genres"
+          value={formik.values.genres}
+          onChange={formik.setFieldValue}
           options={optionsGenres}
           placeholder="Select genre"
         />
         <FieldInput
-          label="overview"
+          label={`overview ${formik.errors.overview || ''}`}
           name="overview"
-          value={overview}
+          value={formik.values.overview}
           placeholder="Input overview"
-          onChange={handleChangeData}
+          onChange={formik.handleChange}
         />
         <FieldInput
-          label="runtime"
+          label={`runtime ${formik.errors.runtime || ''}`}
           type="number"
           name="runtime"
-          value={runtime}
+          value={formik.values.runtime}
           placeholder="Input runtime"
-          onChange={handleChangeData}
+          onChange={formik.handleChange}
         />
       </Modal.Body>
       <Modal.Footer>
-        <span className="errorMessage">{errorMessage}</span>
-        <Button onClick={handleResetValues} variant="secondary">Reset</Button>
-        <Button onClick={handleSaveMovie} className="ml-3">{isCreateMode ? 'Submit' : 'Save'}</Button>
+        {/* <span className="errorMessage">{errorMessage}</span> */}
+        <Button onClick={formik.handleReset} variant="secondary">Reset</Button>
+        <Button onClick={formik.handleSubmit} className="ml-3">{isCreateMode ? 'Submit' : 'Save'}</Button>
       </Modal.Footer>
     </Modal>
   );
