@@ -5,13 +5,12 @@ import cn from './FilterMovies.module.css';
 
 const movieTypes = ['all', 'documentary', 'comedy', 'horror', 'crime'];
 
-const FilterMovies = ({ activeType = 'all', onClickMovieType }) => {
-
+const FilterMovies = ({ activeType = 'all', onClickMovieGenre }) => {
   const handleClickMovieType = useCallback(({ target: { textContent } }) => {
     if (movieTypes.includes(textContent)) {
-      onClickMovieType(textContent);
+      onClickMovieGenre(textContent === 'all' ? '' : textContent);
     }
-  }, [onClickMovieType]);
+  }, [onClickMovieGenre]);
 
   const movieTypeButtons = movieTypes.map((movieType, index) => (
     <Button
@@ -34,7 +33,7 @@ const FilterMovies = ({ activeType = 'all', onClickMovieType }) => {
 
 FilterMovies.propTypes = {
   activeType: PropTypes.string,
-  onClickMovieType: PropTypes.func.isRequired
+  onClickMovieGenre: PropTypes.func.isRequired
 };
 
 export default FilterMovies;

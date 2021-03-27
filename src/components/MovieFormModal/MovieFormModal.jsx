@@ -1,27 +1,59 @@
 import React, { useCallback, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
-import { FieldInput, FieldDate, Label, FieldSelect } from '../common';
+import { useDispatch } from 'react-redux';
+import { createMovie, updateMovie } from '../../redux/moviesSlice';
+import { FieldInput, FieldDate, FieldSelect, Label } from '../common';
 import './MovieFormModal.css';
 
-const genres = ['Action', 'Comedy', 'Drama', 'Crime', 'Documentary'];
-const MovieFormModal = ({ isCreateMode = false, movie = {}, onHide }) => {
+const optionsGenres = [
+  { value: 'Documentary', label: 'Documentary' },
+  { value: 'Comedy', label: 'Comedy' },
+  { value: 'Horror', label: 'Horror' },
+  { value: 'Crime', label: 'Crime' }
+];
+
+const initialMovie = {
+  title: '',
+  release_date: new Date(),
+  poster_path: '', overview: '',
+  runtime: '',
+  genres: []
+};
+
+const MovieFormModal = ({ isCreateMode = false, movie = initialMovie, onHide }) => {
   const [movieForm, setMovie] = useState(movie);
+  const [errorMessage, setErrorMessage] = useState('');
+  const dispatch = useDispatch();
 
   const handleChangeData = useCallback(({ target }) => {
     setMovie((movieForm) => ({
       ...movieForm,
-      [target.name]: target.value
+      [target.name]: target.valueAsNumber || target.value
     }));
   }, []);
 
   const handleSelectData = useCallback((name) => (value) => {
     setMovie((movieForm) => ({
       ...movieForm,
-      [name]: value,
+      [name]: Array.isArray(value) ? value.map((item) => item.value) : value,
     }));
   }, []);
 
-  const { id, name, releaseDate, url, overview, runtime, genre } = movieForm;
+  const handleResetValues = useCallback(() => {
+    setMovie((movieForm => ({ ...initialMovie, id: movieForm.id })));
+  }, []);
+
+  const handleSaveMovie = useCallback(async () => {
+    const actionMovie = isCreateMode ? createMovie : updateMovie;
+    const data = await dispatch(actionMovie(movieForm));
+    if (data.meta.requestStatus === "rejected") {
+      setErrorMessage('Input all valid data');
+    } else {
+      onHide();
+    }
+  }, [dispatch, onHide, isCreateMode, movieForm]);
+
+  const { id, title, release_date, poster_path, overview, runtime, genres } = movieForm;
   return (
     <Modal
       centered
@@ -41,31 +73,32 @@ const MovieFormModal = ({ isCreateMode = false, movie = {}, onHide }) => {
         }
         <FieldInput
           label="title"
-          name="name"
-          value={name}
+          name="title"
+          value={title}
           placeholder="Input title"
           onChange={handleChangeData}
         />
         <FieldDate
-          selected={releaseDate}
+          selected={new Date(release_date)}
           placeholderText="Select release date"
           label="release date"
-          onChange={handleSelectData('releaseDate')}
+          onChange={handleSelectData('release_date')}
         />
         <FieldInput
           label="movie url"
           type="url"
-          name="url"
-          value={url}
+          name="poster_path"
+          value={poster_path}
           placeholder="Input URL"
           onChange={handleChangeData}
         />
         <FieldSelect
-          label="genre"
-          value={genre}
-          options={genres}
+          label="genres"
+          value={genres.map((genre => ({ value: genre, label: genre })))}
+          onChange={handleSelectData('genres')}
+          name="genres"
+          options={optionsGenres}
           placeholder="Select genre"
-          onSelect={handleSelectData('genre')}
         />
         <FieldInput
           label="overview"
@@ -84,8 +117,9 @@ const MovieFormModal = ({ isCreateMode = false, movie = {}, onHide }) => {
         />
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary">Reset</Button>
-        <Button className="ml-3">{isCreateMode ? 'Submit' : 'Save'}</Button>
+        <span className="errorMessage">{errorMessage}</span>
+        <Button onClick={handleResetValues} variant="secondary">Reset</Button>
+        <Button onClick={handleSaveMovie} className="ml-3">{isCreateMode ? 'Submit' : 'Save'}</Button>
       </Modal.Footer>
     </Modal>
   );

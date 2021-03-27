@@ -1,20 +1,17 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import { Row, Col, Image, Dropdown } from 'react-bootstrap';
 import cn from './MovieCard.module.css';
+import noImageAvailablePath from '../../assets/images/noImageAvailable.jpeg';
+
+
+const handleErrorLoadPicture = ({ currentTarget }) => {
+  currentTarget.src = noImageAvailablePath;
+}
 
 const MovieCard = ({ movie, onSelectOption, onSelectMovie }) => {
-
-  const handleSelectOption = useCallback((optionType) => {
-    onSelectOption(movie, optionType);
-  }, [movie, onSelectOption]);
-
-  const handleSelectMovie = useCallback(() => {
-    onSelectMovie(movie);
-  }, [movie, onSelectMovie]);
-
   return (
     <Row className={`flex-column ${cn.movieCard}`}>
-      <Dropdown onSelect={handleSelectOption}>
+      <Dropdown onSelect={onSelectOption}>
         <Dropdown.Toggle className={cn.dropdownToggle} variant="" id="dropdown-basic" />
         <Dropdown.Menu align="right" className={cn.dropdownMenu}>
           <Dropdown.Item eventKey="EDIT" className={cn.dropdownItem}>Edit</Dropdown.Item>
@@ -23,15 +20,16 @@ const MovieCard = ({ movie, onSelectOption, onSelectMovie }) => {
       </Dropdown>
       <Image
         className={cn.imageMovie}
-        src={movie.photoLink}
+        src={movie.poster_path || noImageAvailablePath}
         alt="Movie screensaver"
-        onClick={handleSelectMovie}
+        onError={handleErrorLoadPicture}
+        onClick={onSelectMovie}
       />
-      <Col className="pl-0 pr-0 mt-3">
-        <span className={cn.nameMovie}>{movie.name}</span>
-        <span className={cn.releaseDate}>{movie.releaseDate.getFullYear()}</span>
+      <Col className={`${cn.colTitleRelease} pl-0 pr-0 mt-3`}>
+        <span title={movie.title} className={cn.titleMovie}>{movie.title}</span>
+        <span className={cn.releaseDate}>{new Date(movie.release_date).getFullYear()}</span>
       </Col>
-      <span className={cn.typeMovie}>{movie.genre}</span>
+      <span className={cn.genresMovie}>{movie.genres.join(', ')}</span>
     </Row>
   )
 };

@@ -17,17 +17,17 @@ const MovieDetails = ({ movie, onClose }) => {
       </Row>
       <Row className="justify-content-between align-items-start m-auto w-75">
         <Image
-          width="220px"
+          width="210px"
           className={cn.imageMovie}
-          src={movie.photoLink}
+          src={movie.poster_path}
           alt="Movie screensaver"
         />
         <Col className="ml-4">
-          <h2 className={cn.movieName}>
-            {movie.name} <span className={cn.movieRating}>{movie.rating}</span>
+          <h2 className={cn.movieTitle}>
+            {movie.title} <span className={cn.movieRating}>{movie.vote_average}</span>
           </h2>
-          <h3 className={cn.movieSlogan}>{movie.slogan}</h3>
-          <span className={cn.movieReleaseYear}>{movie.releaseDate.getFullYear()}</span>
+          <h3 className={cn.movieSlogan}>{movie.tagline}</h3>
+          <span className={cn.movieReleaseYear}>{new Date(movie.release_date).getFullYear()}</span>
           <span className={cn.movieDuration}>{movie.runtime} min</span>
           <p className={cn.movieOverview}>{movie.overview}</p>
         </Col>

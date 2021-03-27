@@ -1,25 +1,46 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import MovieCard from '../MovieCard';
-import PropTypes from 'prop-types';
 import cn from './ListMovies.module.css';
 import MovieFormModal from '../MovieFormModal';
 import MovieDeleteModal from '../MovieDeleteModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectListMovies } from '../../redux/moviesSelectors';
+import { deleteMovie, getListMovies, setDetailsMovieId } from '../../redux/moviesSlice';
 
-const ListMovies = ({ listMovies = [], onSelectMovie }) => {
+const ListMovies = ({ search, genre, sortBy }) => {
   const [selectedOption, setSelectedOption] = useState({});
+  const listMovies = useSelector(selectListMovies);
+  const params = useMemo(() => ({
+    search,
+    sortBy,
+    sortOrder: 'desc',
+    searchBy: 'title',
+    filter: genre,
+  }), [search, genre, sortBy]);
+  const dispatch = useDispatch();
 
-  const handleSelectOption = useCallback((movie, optionType) => {
-    setSelectedOption({ movie, optionType });
+  useEffect(() => {
+    dispatch(getListMovies(params));
+  }, [dispatch, params]);
+
+  const handleSelectMovie = useCallback((movieId) => () => {
+    dispatch(setDetailsMovieId(movieId));
+  }, [dispatch]);
+
+  const handleSelectOption = useCallback((movie) => (type) => {
+    setSelectedOption({ movie, type });
   }, []);
 
   const handleHideModal = useCallback(() => {
     setSelectedOption({});
   }, []);
 
-  const handleConfirmDelete = useCallback(() => {
+  const handleConfirmDelete = useCallback(async () => {
     setSelectedOption({});
-  }, []);
+    await dispatch(deleteMovie(selectedOption.movie.id));
+    dispatch(getListMovies(params));
+  }, [dispatch, selectedOption, params]);
 
   return (
     <Row className={`flex-column mb-4 ${cn.listMoviesContainer}`}>
@@ -31,21 +52,21 @@ const ListMovies = ({ listMovies = [], onSelectMovie }) => {
         <div className={cn.listMovies}>
           {listMovies.map((movie) => (
             <MovieCard
-              onSelectOption={handleSelectOption}
-              onSelectMovie={onSelectMovie}
+              onSelectOption={handleSelectOption(movie)}
+              onSelectMovie={handleSelectMovie(movie.id)}
               key={movie.id}
               movie={movie}
             />
           ))}
         </div>
       </Col>
-      {selectedOption.optionType === "EDIT" &&
+      {selectedOption.type === "EDIT" &&
         <MovieFormModal
           movie={selectedOption.movie}
           onHide={handleHideModal}
         />
       }
-      {selectedOption.optionType === "DELETE" &&
+      {selectedOption.type === "DELETE" &&
         <MovieDeleteModal
           onHide={handleHideModal}
           onConfirm={handleConfirmDelete}
@@ -53,10 +74,6 @@ const ListMovies = ({ listMovies = [], onSelectMovie }) => {
       }
     </Row>
   )
-};
-
-ListMovies.propTypes = {
-  listMovies: PropTypes.array,
 };
 
 export default ListMovies;

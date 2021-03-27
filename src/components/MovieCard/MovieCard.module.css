@@ -2,24 +2,28 @@
 .imageMovie {
   cursor: pointer;
   max-width: 100%;
+  min-height: 82%;
   height: auto;
 }
 
-.nameMovie {
+.titleMovie {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 1.2rem;
   color: #bbb;
+  max-width: 80%;
 }
 
 .releaseDate {
-  display: block;
   padding: 2px 15px;
-  float: right;
   border: 1px solid #bbb;
   border-radius: 5px;
   color: #bbb;
 }
 
-.typeMovie {
+.genresMovie {
   color: #999;
 }
 
@@ -61,4 +65,11 @@
 .movieCard .dropdownItem:hover {
   color: white;
   background-color: #f65261;
+}
+
+.colTitleRelease {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-height: 32px;
 }

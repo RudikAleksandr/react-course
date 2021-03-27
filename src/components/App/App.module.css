@@ -2,7 +2,9 @@
   background-color: #555;
 }
 
+
 .mainContent {
+  min-height: calc(100vh - 478px);
   background-color: #232323;
 }
 
