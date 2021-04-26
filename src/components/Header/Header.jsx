@@ -50,10 +50,7 @@ const Header = () => {
           </Row>
           <SearchMovies onSearch={handleSearchMovies} />
           {isOpenCreateModal &&
-            <MovieFormModal
-              isCreateMode
-              onHide={handleToggleCreateModal}
-            />
+            <MovieFormModal onHide={handleToggleCreateModal} />
           }
         </Col>
       }
