@@ -5,7 +5,6 @@ import { groupByKey } from '../utils/grouping';
 const initialState = {
   movies: {},
   moviesOrder: [],
-  detailsMovieId: '',
   search: '',
   activeMovieGenre: '',
   activeSortType: 'release_date'
@@ -14,7 +13,11 @@ const initialState = {
 export const getListMovies = createAsyncThunk(
   'movies/getListMovies',
   moviesAPI.getListMovies
+);
 
+export const getMovie = createAsyncThunk(
+  'movies/getMovie',
+  moviesAPI.getMovie
 );
 
 export const updateMovie = createAsyncThunk(
@@ -36,9 +39,6 @@ const moviesSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
-    setDetailsMovieId: (state, { payload }) => {
-      state.detailsMovieId = payload;
-    },
     setSearch: (state, { payload }) => {
       state.search = payload;
     },

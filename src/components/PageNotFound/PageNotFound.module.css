@@ -1,0 +1,26 @@
+
+.pageNotFound {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #232323;
+  height: 92.5vh;
+  width: 100%;
+}
+
+.notFoundLabel {
+  color: white;
+  font-weight: 300;
+}
+
+.errorMessage {
+  display: block;
+  color: white;
+  font-size: 7rem;
+  margin-bottom: 20px;
+}
+
+.homeLink {
+
+}

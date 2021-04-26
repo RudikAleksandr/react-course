@@ -6,7 +6,7 @@ import MovieFormModal from '../MovieFormModal';
 import MovieDeleteModal from '../MovieDeleteModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectListMovies } from '../../redux/moviesSelectors';
-import { deleteMovie, getListMovies, setDetailsMovieId } from '../../redux/moviesSlice';
+import { deleteMovie, getListMovies } from '../../redux/moviesSlice';
 
 const ListMovies = ({ search, genre, sortBy }) => {
   const [selectedOption, setSelectedOption] = useState({});
@@ -21,12 +21,11 @@ const ListMovies = ({ search, genre, sortBy }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getListMovies(params));
+    if (params.search || params.filter) {
+      params.filter = params.filter === 'all' ? '' : params.filter;
+      dispatch(getListMovies(params));
+    }
   }, [dispatch, params]);
-
-  const handleSelectMovie = useCallback((movieId) => () => {
-    dispatch(setDetailsMovieId(movieId));
-  }, [dispatch]);
 
   const handleSelectOption = useCallback((movie) => (type) => {
     setSelectedOption({ movie, type });
@@ -49,15 +48,17 @@ const ListMovies = ({ search, genre, sortBy }) => {
         <span className={cn.moviesFoundLabel}>movies found</span>
       </Col>
       <Col>
-        <div className={cn.listMovies}>
-          {listMovies.map((movie) => (
+        <div className={listMovies.length ? cn.listMovies : cn.noMovieFound}>
+          {!!listMovies.length && listMovies.map((movie) => (
             <MovieCard
               onSelectOption={handleSelectOption(movie)}
-              onSelectMovie={handleSelectMovie(movie.id)}
               key={movie.id}
               movie={movie}
             />
           ))}
+          {!listMovies.length && (
+            <h2 className={cn.noMovieFoundLabel}>No Movie Found</h2>
+          )}
         </div>
       </Col>
       {selectedOption.type === "EDIT" &&

@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useReducer } from 'react';
-import { Row, Col, Nav, Button } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectDetailsMovie } from '../../redux/moviesSelectors';
-import { setSearch, setDetailsMovieId } from '../../redux/moviesSlice';
+import { Row, Col, Button } from 'react-bootstrap';
+import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { useLocation } from "react-router-dom";
+
+import { setSearch } from '../../redux/moviesSlice';
 import MovieFormModal from '../MovieFormModal';
 import SearchMovies from '../SearchMovies';
-import MovieDetails from '../MovieDetails';
 import cn from './Header.module.css';
 
 // Custom Hook
@@ -14,47 +15,41 @@ const useToggle = (initialValue = false) => {
 }
 
 const Header = () => {
+  const history = useHistory();
+  const searchQuery = new URLSearchParams(useLocation().search).get('query');
+
   const [isOpenCreateModal, toggleIsOpen] = useToggle();
-  const detailsMovie = useSelector(selectDetailsMovie);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    document.documentElement.scrollTop = 0;
-  }, [detailsMovie])
-
-  const handleCloseDetails = useCallback(() => {
-    dispatch(setDetailsMovieId(''));
-  }, [dispatch])
+    dispatch(setSearch(searchQuery || ''));
+  }, [searchQuery, dispatch]);
 
   const handleSearchMovies = useCallback((search) => {
-    dispatch(setSearch(search));
-  }, [dispatch])
+    history.push(`/search?query=${search}`);
+  }, [history])
 
   const handleToggleCreateModal = useCallback(() => {
     toggleIsOpen();
   }, [toggleIsOpen]);
 
   return (
-    <>
-      {detailsMovie ? <MovieDetails movie={detailsMovie} onClose={handleCloseDetails} /> :
-        <Col className={cn.header}>
-          <Row className="justify-content-between align-items-end mb-5 ml-5 mr-5 mt-3">
-            <Nav.Link className={cn.netflixLink} href="/home"><b>netflix</b>roulette</Nav.Link>
-            <Button
-              variant=""
-              className={cn.addMovieButton}
-              onClick={handleToggleCreateModal}
-            >
-              + Add movie
+    <Col className={cn.header}>
+      <Row className="justify-content-between align-items-end mb-5 ml-5 mr-5 mt-3">
+        <Link className={cn.netflixLink} to="/"><b>netflix</b>roulette</Link>
+        <Button
+          variant=""
+          className={cn.addMovieButton}
+          onClick={handleToggleCreateModal}
+        >
+          + Add movie
         </Button>
-          </Row>
-          <SearchMovies onSearch={handleSearchMovies} />
-          {isOpenCreateModal &&
-            <MovieFormModal onHide={handleToggleCreateModal} />
-          }
-        </Col>
+      </Row>
+      <SearchMovies onSearch={handleSearchMovies} />
+      {isOpenCreateModal &&
+        <MovieFormModal onHide={handleToggleCreateModal} />
       }
-    </>
+    </Col>
   );
 }
 
