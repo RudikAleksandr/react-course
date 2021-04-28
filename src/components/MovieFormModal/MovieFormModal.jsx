@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
@@ -119,7 +119,6 @@ const MovieFormModal = ({ movie = initialMovie, onHide }) => {
         />
       </Modal.Body>
       <Modal.Footer>
-        {/* <span className="errorMessage">{errorMessage}</span> */}
         <Button onClick={formik.handleReset} variant="secondary">Reset</Button>
         <Button onClick={formik.handleSubmit} className="ml-3">{isCreateMode ? 'Submit' : 'Save'}</Button>
       </Modal.Footer>

@@ -5,10 +5,10 @@ import cn from './FilterMovies.module.css';
 
 const movieTypes = ['all', 'documentary', 'comedy', 'horror', 'crime'];
 
-const FilterMovies = ({ activeType = 'all', onClickMovieGenre }) => {
+const FilterMovies = ({ activeType, onClickMovieGenre }) => {
   const handleClickMovieType = useCallback(({ target: { textContent } }) => {
     if (movieTypes.includes(textContent)) {
-      onClickMovieGenre(textContent === 'all' ? '' : textContent);
+      onClickMovieGenre(textContent);
     }
   }, [onClickMovieGenre]);
 
