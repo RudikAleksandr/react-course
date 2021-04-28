@@ -7,15 +7,14 @@ const movieTypes = ['all', 'documentary', 'comedy', 'horror', 'crime'];
 
 const FilterMovies = ({ activeType, onClickMovieGenre }) => {
   const handleClickMovieType = useCallback(({ target: { textContent } }) => {
-    if (movieTypes.includes(textContent)) {
-      onClickMovieGenre(textContent);
-    }
+    onClickMovieGenre(textContent);
   }, [onClickMovieGenre]);
 
   const movieTypeButtons = movieTypes.map((movieType, index) => (
     <Button
       key={index}
       variant=""
+      onClick={handleClickMovieType}
       className={`${cn.filterButton} ${activeType === movieType ? cn.activeFilterButton : ''}`}
     >
       {movieType}
@@ -24,7 +23,7 @@ const FilterMovies = ({ activeType, onClickMovieGenre }) => {
 
   return (
     <Row className={`${cn.filterMovies}`}>
-      <Col className="pl-0" onClick={handleClickMovieType}>
+      <Col className="pl-0">
         {movieTypeButtons}
       </Col>
     </Row>

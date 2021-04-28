@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainContent component render MainContent snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="col-xl-9 col-lg-11 col-12"
+  >
+    <div
+      class="flex-column align-items-center mt-2 mainContent row"
+    >
+      <div
+        class="mt-1 col-11"
+      >
+        <div
+          class="filterSortRow row"
+        >
+          <div
+            class="col-8"
+          >
+            <div
+              class="filterMovies row"
+            >
+              <div
+                class="pl-0 col"
+              >
+                <button
+                  class="filterButton  btn"
+                  type="button"
+                >
+                  all
+                </button>
+                <button
+                  class="filterButton  btn"
+                  type="button"
+                >
+                  documentary
+                </button>
+                <button
+                  class="filterButton  btn"
+                  type="button"
+                >
+                  comedy
+                </button>
+                <button
+                  class="filterButton  btn"
+                  type="button"
+                >
+                  horror
+                </button>
+                <button
+                  class="filterButton  btn"
+                  type="button"
+                >
+                  crime
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col-4"
+          >
+            <div
+              class="align-items-center justify-content-end sortMovies row"
+            >
+              <span
+                class="sortByLabel"
+              >
+                sort by
+              </span>
+              <div
+                class="sortTypeDropdown dropdown btn-group"
+                role="group"
+              >
+                <button
+                  aria-expanded="false"
+                  aria-haspopup="true"
+                  class="dropdown-toggle btn"
+                  type="button"
+                >
+                  release date
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="flex-column mb-4 listMoviesContainer row"
+        >
+          <div
+            class="pl-0 mt-4 mb-4 col"
+          >
+            <span
+              class="countMovies"
+            >
+              0
+            </span>
+            <span
+              class="moviesFoundLabel"
+            >
+              movies found
+            </span>
+          </div>
+          <div
+            class="col"
+          >
+            <div
+              class="noMovieFound"
+            >
+              <h2
+                class="noMovieFoundLabel"
+              >
+                No Movie Found
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

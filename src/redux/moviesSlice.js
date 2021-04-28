@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import * as moviesAPI from '../api/moviesAPI';
 import { groupByKey } from '../utils/grouping';
 
-const initialState = {
+export const initialState = {
   movies: {},
   moviesOrder: [],
   search: '',
@@ -61,7 +61,6 @@ const moviesSlice = createSlice({
 });
 
 export const {
-  setDetailsMovieId,
   setSearch,
   setActiveMovieGenre,
   setActiveSortType

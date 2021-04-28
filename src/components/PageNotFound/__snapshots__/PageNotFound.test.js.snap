@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageNotFound component render PageNotFound snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="justify-content-center align-items-center pageNotFound"
+  >
+    <h1
+      class="notFoundLabel"
+    >
+      Page Not Found
+    </h1>
+    <span
+      class="errorMessage"
+    >
+      404
+    </span>
+    <a
+      class="homeLink btn btn-secondary"
+      href="/"
+    >
+      Go back to home
+    </a>
+  </div>
+</DocumentFragment>
+`;

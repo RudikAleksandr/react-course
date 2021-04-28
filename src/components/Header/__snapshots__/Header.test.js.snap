@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component render Header snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="header col"
+  >
+    <div
+      class="justify-content-between align-items-end mb-5 ml-5 mr-5 mt-3 row"
+    >
+      <a
+        class="netflixLink"
+        href="/"
+      >
+        <b>
+          netflix
+        </b>
+        roulette
+      </a>
+      <button
+        class="addMovieButton btn"
+        type="button"
+      >
+        + Add movie
+      </button>
+    </div>
+    <div
+      class="justify-content-center searchMovies row"
+    >
+      <div
+        class="col-md-7 col-11"
+      >
+        <h1
+          class="findMovieTitle"
+        >
+          Find your movie
+        </h1>
+      </div>
+      <div
+        class="mt-4 col-md-7 col-11"
+      >
+        <div
+          class="justify-content-center row"
+        >
+          <div
+            class="col-xl-8 col-8"
+            xxl="9"
+          >
+            <div
+              class="form-group"
+            >
+              <input
+                class="searchInput form-control"
+                placeholder="What do you want to watch?"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="pl-0 col-4"
+          >
+            <button
+              class="btn btn-primary"
+              type="button"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

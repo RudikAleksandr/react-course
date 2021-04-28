@@ -1,0 +1,68 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieDetails component render MovieDetails snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="root col"
+  >
+    <div
+      class="justify-content-between align-items-end ml-5 mr-5 mt-3 row"
+    >
+      <a
+        class="netflixLink"
+        href="/"
+      >
+        <b>
+          netflix
+        </b>
+        roulette
+      </a>
+      <a
+        href="/"
+      >
+        <img
+          alt="Search icon"
+          class="iconSearch"
+          src="search.svg"
+        />
+      </a>
+    </div>
+    <div
+      class="justify-content-between align-items-start m-auto w-75 row"
+    >
+      <img
+        alt="Movie screensaver"
+        class="imageMovie"
+        src=""
+        width="210px"
+      />
+      <div
+        class="ml-4 col"
+      >
+        <h2
+          class="movieTitle"
+        >
+           
+          <span
+            class="movieRating"
+          />
+        </h2>
+        <h3
+          class="movieSlogan"
+        />
+        <span
+          class="movieReleaseYear"
+        />
+        <span
+          class="movieDuration"
+        >
+           min
+        </span>
+        <p
+          class="movieOverview"
+        />
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

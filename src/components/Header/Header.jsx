@@ -3,14 +3,13 @@ import { Row, Col, Button } from 'react-bootstrap';
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { useLocation } from "react-router-dom";
-
 import { setSearch } from '../../redux/moviesSlice';
 import MovieFormModal from '../MovieFormModal';
 import SearchMovies from '../SearchMovies';
 import cn from './Header.module.css';
 
 // Custom Hook
-const useToggle = (initialValue = false) => {
+export const useToggle = (initialValue = false) => {
   return useReducer((state) => !state, initialValue);
 }
 

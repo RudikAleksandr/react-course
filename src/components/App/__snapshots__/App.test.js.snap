@@ -1,0 +1,214 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component render App snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="appContainer container-fluid"
+  >
+    <div
+      class="flex-column align-items-center row"
+    >
+      <div
+        class="header col"
+      >
+        <div
+          class="justify-content-between align-items-end mb-5 ml-5 mr-5 mt-3 row"
+        >
+          <a
+            class="netflixLink"
+            href="/"
+          >
+            <b>
+              netflix
+            </b>
+            roulette
+          </a>
+          <button
+            class="addMovieButton btn"
+            type="button"
+          >
+            + Add movie
+          </button>
+        </div>
+        <div
+          class="justify-content-center searchMovies row"
+        >
+          <div
+            class="col-md-7 col-11"
+          >
+            <h1
+              class="findMovieTitle"
+            >
+              Find your movie
+            </h1>
+          </div>
+          <div
+            class="mt-4 col-md-7 col-11"
+          >
+            <div
+              class="justify-content-center row"
+            >
+              <div
+                class="col-xl-8 col-8"
+                xxl="9"
+              >
+                <div
+                  class="form-group"
+                >
+                  <input
+                    class="searchInput form-control"
+                    placeholder="What do you want to watch?"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                class="pl-0 col-4"
+              >
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col-xl-9 col-lg-11 col-12"
+      >
+        <div
+          class="flex-column align-items-center mt-2 mainContent row"
+        >
+          <div
+            class="mt-1 col-11"
+          >
+            <div
+              class="filterSortRow row"
+            >
+              <div
+                class="col-8"
+              >
+                <div
+                  class="filterMovies row"
+                >
+                  <div
+                    class="pl-0 col"
+                  >
+                    <button
+                      class="filterButton  btn"
+                      type="button"
+                    >
+                      all
+                    </button>
+                    <button
+                      class="filterButton  btn"
+                      type="button"
+                    >
+                      documentary
+                    </button>
+                    <button
+                      class="filterButton  btn"
+                      type="button"
+                    >
+                      comedy
+                    </button>
+                    <button
+                      class="filterButton  btn"
+                      type="button"
+                    >
+                      horror
+                    </button>
+                    <button
+                      class="filterButton  btn"
+                      type="button"
+                    >
+                      crime
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-4"
+              >
+                <div
+                  class="align-items-center justify-content-end sortMovies row"
+                >
+                  <span
+                    class="sortByLabel"
+                  >
+                    sort by
+                  </span>
+                  <div
+                    class="sortTypeDropdown dropdown btn-group"
+                    role="group"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-haspopup="true"
+                      class="dropdown-toggle btn"
+                      type="button"
+                    >
+                      release date
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              class="flex-column mb-4 listMoviesContainer row"
+            >
+              <div
+                class="pl-0 mt-4 mb-4 col"
+              >
+                <span
+                  class="countMovies"
+                >
+                  0
+                </span>
+                <span
+                  class="moviesFoundLabel"
+                >
+                  movies found
+                </span>
+              </div>
+              <div
+                class="col"
+              >
+                <div
+                  class="noMovieFound"
+                >
+                  <h2
+                    class="noMovieFoundLabel"
+                  >
+                    No Movie Found
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="col"
+      >
+        <div
+          class="justify-content-center align-items-center footer row"
+        >
+          <a
+            class="netflixLink nav-link"
+            href="/home"
+          >
+            <b>
+              netflix
+            </b>
+            roulette
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

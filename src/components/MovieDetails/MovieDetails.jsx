@@ -35,7 +35,7 @@ const MovieDetails = () => {
         <Image
           width="210px"
           className={cn.imageMovie}
-          src={movie.poster_path}
+          src={movie.poster_path || ''}
           alt="Movie screensaver"
         />
         <Col className="ml-4">

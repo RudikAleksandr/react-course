@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieCard component render MovieCard snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="flex-column movieCard row"
+  >
+    <div
+      class="dropdown"
+      data-testid="selectOption"
+    >
+      <button
+        aria-expanded="false"
+        aria-haspopup="true"
+        class="dropdownToggle dropdown-toggle btn"
+        id="dropdown-basic"
+        type="button"
+      />
+    </div>
+    <a
+      href="/film/id"
+    >
+      <img
+        alt="Movie screensaver"
+        class="imageMovie"
+        src="noImageAvailable.jpeg"
+      />
+    </a>
+    <div
+      class="colTitleRelease pl-0 pr-0 mt-3 col"
+    >
+      <span
+        class="titleMovie"
+        title="title"
+      >
+        title
+      </span>
+      <span
+        class="releaseDate"
+      >
+        2017
+      </span>
+    </div>
+    <span
+      class="genresMovie"
+    />
+  </div>
+</DocumentFragment>
+`;

@@ -12,7 +12,7 @@ const handleErrorLoadPicture = ({ currentTarget }) => {
 const MovieCard = ({ movie, onSelectOption }) => {
   return (
     <Row className={`flex-column ${cn.movieCard}`}>
-      <Dropdown onSelect={onSelectOption}>
+      <Dropdown data-testid="selectOption" onSelect={onSelectOption}>
         <Dropdown.Toggle className={cn.dropdownToggle} variant="" id="dropdown-basic" />
         <Dropdown.Menu align="right" className={cn.dropdownMenu}>
           <Dropdown.Item eventKey="EDIT" className={cn.dropdownItem}>Edit</Dropdown.Item>
