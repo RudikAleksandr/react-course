@@ -54,7 +54,8 @@ const MovieFormModal = ({ movie = initialMovie, onHide }) => {
       size="lg"
       show={true}
       className="modalFormMovie"
-      onHide={onHide}>
+      onHide={onHide}
+      data-testid="movieFormModal">
       <Modal.Header closeButton>
         <h2>{isCreateMode ? 'Add' : 'Edit'} movie</h2>
       </Modal.Header>

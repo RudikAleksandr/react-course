@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component render Footer snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="col"
+  >
+    <div
+      class="justify-content-center align-items-center footer row"
+    >
+      <a
+        class="netflixLink nav-link"
+        href="/home"
+      >
+        <b>
+          netflix
+        </b>
+        roulette
+      </a>
+    </div>
+  </div>
+</DocumentFragment>
+`;

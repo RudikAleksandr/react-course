@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterMovies component render FilterMovies snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="filterMovies row"
+  >
+    <div
+      class="pl-0 col"
+    >
+      <button
+        class="filterButton activeFilterButton btn"
+        type="button"
+      >
+        all
+      </button>
+      <button
+        class="filterButton  btn"
+        type="button"
+      >
+        documentary
+      </button>
+      <button
+        class="filterButton  btn"
+        type="button"
+      >
+        comedy
+      </button>
+      <button
+        class="filterButton  btn"
+        type="button"
+      >
+        horror
+      </button>
+      <button
+        class="filterButton  btn"
+        type="button"
+      >
+        crime
+      </button>
+    </div>
+  </div>
+</DocumentFragment>
+`;
