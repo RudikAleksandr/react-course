@@ -1,6 +1,6 @@
 
 .header {
-  background: linear-gradient(to top,rgba(0,0,0,.7) 0,rgba(0,0,0,.7) 100%), url('/src/assets/images/netflixMovies.jpg');
+  background: linear-gradient(to top,rgba(0,0,0,.7) 0,rgba(0,0,0,.7) 100%), url('../../assets/images/netflixMovies.jpg');
   min-height: 400px;
   width: 100%;
 }

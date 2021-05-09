@@ -23,12 +23,12 @@ const SearchMovies = ({ onSearch }) => {
       <Col xs="11" md="7" className="mt-4">
         <Row className="justify-content-center">
           <Col xs="8" xl="8" xxl="9">
-            <FieldInput
+            {/* <FieldInput
               value={searchText}
               onChange={handleChangeSearch}
               className={cn.searchInput}
               placeholder="What do you want to watch?"
-            />
+            /> */}
           </Col>
           <Col xs="4" className="pl-0">
             <Button onClick={handleClickSearch}>Search</Button>

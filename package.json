@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-transform-runtime": "^7.12.1",
+    "@babel/preset-env": "^7.14.1",
+    "@babel/preset-react": "^7.13.13",
+    "@loadable/server": "^5.15.0",
     "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -15,6 +19,7 @@
     "react-bootstrap": "^1.5.0",
     "react-datepicker": "^3.6.0",
     "react-dom": "^17.0.1",
+    "react-loadable": "^5.5.0",
     "react-redux": "^7.2.2",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.2",
@@ -26,6 +31,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "server": "node server/bootstrap.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "coverage": "react-scripts test --env=jsdom --watchAll=false --coverage",
@@ -50,6 +56,18 @@
     ]
   },
   "devDependencies": {
-    "redux-mock-store": "^1.5.4"
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/register": "^7.13.16",
+    "@loadable/babel-plugin": "^5.13.2",
+    "babel-plugin-dynamic-import-node": "^2.3.3",
+    "babel-plugin-styled-components": "^1.12.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-react-app": "^10.0.0",
+    "file-loader": "^6.1.1",
+    "ignore-styles": "^5.0.1",
+    "react-async-ssr": "^0.7.2",
+    "redux-mock-store": "^1.5.4",
+    "regenerator-runtime": "^0.13.7",
+    "url-loader": "^4.1.1"
   }
 }
