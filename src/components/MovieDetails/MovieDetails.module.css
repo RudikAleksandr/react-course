@@ -1,6 +1,5 @@
 
 .root {
-  background: linear-gradient(to top,rgba(0, 0, 0, .9) 0,rgba(0, 0, 0, .9) 100%), url('/src/assets/images/netflixMovies.jpg');
   min-height: 400px;
   width: 100%;
 }

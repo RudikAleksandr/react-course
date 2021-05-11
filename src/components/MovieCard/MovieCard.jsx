@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import cn from './MovieCard.module.css';
 import noImageAvailablePath from '../../assets/images/noImageAvailable.jpeg';
 
-
 const handleErrorLoadPicture = ({ currentTarget }) => {
   currentTarget.src = noImageAvailablePath;
 }
