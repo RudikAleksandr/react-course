@@ -1,14 +1,12 @@
-
-
 const groupByKey = (key, arr) => {
-  const obj = {}
+  const obj = {};
   arr.forEach((item) => {
     obj[item[key]] = item;
   });
 
   return obj;
-}
+};
 
 export {
-  groupByKey
-}
+  groupByKey,
+};

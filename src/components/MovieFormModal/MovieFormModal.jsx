@@ -4,7 +4,9 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 import { createMovie, updateMovie } from '../../redux/moviesSlice';
-import { FieldInput, FieldDate, FieldSelect, Label } from '../common';
+import {
+  FieldInput, FieldDate, FieldSelect, Label,
+} from '../common';
 import './MovieFormModal.css';
 
 const MovieSchema = yup.object().shape({
@@ -21,7 +23,7 @@ const optionsGenres = [
   { value: 'Documentary', label: 'Documentary' },
   { value: 'Comedy', label: 'Comedy' },
   { value: 'Horror', label: 'Horror' },
-  { value: 'Crime', label: 'Crime' }
+  { value: 'Crime', label: 'Crime' },
 ];
 
 const initialMovie = {
@@ -31,7 +33,7 @@ const initialMovie = {
   poster_path: '',
   overview: '',
   runtime: '',
-  genres: []
+  genres: [],
 };
 
 const MovieFormModal = ({ movie = initialMovie, onHide }) => {
@@ -52,20 +54,26 @@ const MovieFormModal = ({ movie = initialMovie, onHide }) => {
     <Modal
       centered
       size="lg"
-      show={true}
+      show
       className="modalFormMovie"
       onHide={onHide}
-      data-testid="movieFormModal">
+      data-testid="movieFormModal"
+    >
       <Modal.Header closeButton>
-        <h2>{isCreateMode ? 'Add' : 'Edit'} movie</h2>
+        <h2>
+          {isCreateMode ? 'Add' : 'Edit'}
+          {' '}
+          movie
+        </h2>
       </Modal.Header>
       <Modal.Body>
-        {!isCreateMode &&
-          <>
-            <Label text="movie id" />
-            <Label className="movieId" text={movie.id} />
-          </>
-        }
+        {!isCreateMode
+          && (
+            <>
+              <Label text="movie id" />
+              <Label className="movieId" text={movie.id} />
+            </>
+          )}
         <FieldInput
           label={`title ${formik.errors.title || ''}`}
           name="title"
@@ -125,6 +133,6 @@ const MovieFormModal = ({ movie = initialMovie, onHide }) => {
       </Modal.Footer>
     </Modal>
   );
-}
+};
 
 export default MovieFormModal;

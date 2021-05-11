@@ -1,3 +1,3 @@
-import SortMovies from './SortMovies.jsx';
+import SortMovies from './SortMovies';
 
 export default SortMovies;

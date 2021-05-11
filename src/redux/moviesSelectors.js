@@ -1,5 +1,4 @@
-
-const selectListMovies = (state) => state.movies.moviesOrder.map(id => state.movies.movies[id]);
+const selectListMovies = (state) => state.movies.moviesOrder.map((id) => state.movies.movies[id]);
 
 const selectSearch = (state) => state.movies.search;
 
@@ -11,5 +10,5 @@ export {
   selectListMovies,
   selectSearch,
   selectActiveMovieGenre,
-  selectActiveSortType
+  selectActiveSortType,
 };

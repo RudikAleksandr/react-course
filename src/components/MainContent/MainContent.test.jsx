@@ -1,11 +1,10 @@
-
-import { render, } from '@testing-library/react';
-import MainContent from './MainContent';
+import { render } from '@testing-library/react';
 import * as reactRedux from 'react-redux';
 import * as React from 'react';
-import configureStore from 'redux-mock-store'
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import { initialState } from '../../redux/moviesSlice';
-import thunk from 'redux-thunk'
+import MainContent from './MainContent';
 
 const getComponent = (store) => (
   <reactRedux.Provider store={store}>

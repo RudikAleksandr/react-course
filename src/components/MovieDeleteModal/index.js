@@ -1,3 +1,3 @@
-import MovieDeleteModal from './MovieDeleteModal.jsx';
+import MovieDeleteModal from './MovieDeleteModal';
 
 export default MovieDeleteModal;

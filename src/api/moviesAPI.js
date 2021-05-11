@@ -1,5 +1,4 @@
-
-import axios from "./api";
+import axios from './api';
 
 const getListMovies = (params) => axios.get('/movies', { params }).then(({ data }) => data);
 
@@ -16,5 +15,5 @@ export {
   getMovie,
   updateMovie,
   createMovie,
-  deleteMovie
+  deleteMovie,
 };

@@ -6,9 +6,10 @@ const MovieDeleteModal = ({ onHide, onConfirm }) => (
   <Modal
     centered
     size="lg"
-    show={true}
+    show
     className="modalDeleteMovie"
-    onHide={onHide}>
+    onHide={onHide}
+  >
     <Modal.Header closeButton>
       <h2>delete movie</h2>
     </Modal.Header>

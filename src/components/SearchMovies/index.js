@@ -1,3 +1,3 @@
-import SearchMovies from './SearchMovies.jsx';
+import SearchMovies from './SearchMovies';
 
 export default SearchMovies;

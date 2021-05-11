@@ -4,13 +4,15 @@ import Select from 'react-select';
 import Label from '../Label';
 import './FieldSelect.css';
 
-const FieldSelect = ({ label, value, onChange, name, options, placeholder }) => (
+const FieldSelect = ({
+  label, value, onChange, name, options, placeholder,
+}) => (
   <FormGroup>
     {label && <Label text={label} />}
     <Select
       isMulti="true"
-      value={value.map((item => ({ value: item, label: item })))}
-      onChange={val => onChange(name, val.map((item) => item.value))}
+      value={value.map(((item) => ({ value: item, label: item })))}
+      onChange={(val) => onChange(name, val.map((item) => item.value))}
       options={options}
       placeholder={placeholder}
     />

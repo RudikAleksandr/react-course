@@ -1,6 +1,6 @@
 import { configureStore as configureStoreToolkit } from '@reduxjs/toolkit';
+import thunkMiddleware from 'redux-thunk';
 import moviesReducer from './moviesSlice';
-import thunkMiddleware from 'redux-thunk'
 
 const configureStore = (preloadedState) => (
   configureStoreToolkit({
@@ -10,6 +10,6 @@ const configureStore = (preloadedState) => (
     },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunkMiddleware),
   })
-)
+);
 
 export default configureStore;

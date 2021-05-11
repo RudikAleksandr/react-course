@@ -1,12 +1,11 @@
-
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router';
-import MovieDetails from './MovieDetails';
 import * as reactRedux from 'react-redux';
-import * as React from 'react';
-import configureStore from 'redux-mock-store'
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import { initialState } from '../../redux/moviesSlice';
-import thunk from 'redux-thunk'
+import MovieDetails from './MovieDetails';
 
 const getComponent = (store) => (
   <MemoryRouter>

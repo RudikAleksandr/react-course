@@ -1,4 +1,4 @@
-import store from '../store';
+import store from '../configureStore';
 
 describe('redux store', () => {
   test('should check initial store', () => {
@@ -8,8 +8,8 @@ describe('redux store', () => {
         moviesOrder: [],
         search: '',
         activeMovieGenre: '',
-        activeSortType: 'release_date'
-      }
+        activeSortType: 'release_date',
+      },
     });
   });
-})
+});

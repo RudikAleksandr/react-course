@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import FilterMovies from '../FilterMovies';
 import SortMovies from '../SortMovies';
 import ListMovies from '../ListMovies';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectActiveMovieGenre, selectActiveSortType, selectSearch } from '../../redux/moviesSelectors';
 import { setActiveMovieGenre, setActiveSortType } from '../../redux/moviesSlice';
 import cn from './MainContent.module.css';
@@ -14,13 +14,14 @@ const MainContent = () => {
   const search = useSelector(selectSearch);
   const dispatch = useDispatch();
 
+  // PATTERN: memoization of callbacks
   const handleClickMovieGenre = useCallback((movieGenre) => {
     dispatch(setActiveMovieGenre(movieGenre));
-  }, [dispatch])
+  }, [dispatch]);
 
   const handleSelectSortType = useCallback((sortType) => {
     dispatch(setActiveSortType(sortType));
-  }, [dispatch])
+  }, [dispatch]);
 
   return (
     <Col xs="12" lg="11" xl="9">
@@ -49,7 +50,7 @@ const MainContent = () => {
         </Col>
       </Row>
     </Col>
-  )
+  );
 };
 
 export default MainContent;

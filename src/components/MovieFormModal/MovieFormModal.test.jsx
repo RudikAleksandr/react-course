@@ -1,22 +1,19 @@
-
-import { render, waitFor } from '@testing-library/react';
+import React from 'react';
+import { render } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router';
-import MovieFormModal from './MovieFormModal';
-import { Provider } from 'react-redux'
-import { createMovie, updateMovie } from '../../redux/moviesSlice';
-import configureStore from 'redux-mock-store'
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 import { initialState } from '../../redux/moviesSlice';
-import * as reactRedux from 'react-redux';
-import userEvent from '@testing-library/user-event';
+
+import MovieFormModal from './MovieFormModal';
 
 jest.mock('../../redux/moviesSlice');
-
 
 const getComponent = (store, props) => (
   <MemoryRouter>
     <Route>
       <Provider store={store}>
-        <MovieFormModal {...props} />
+        <MovieFormModal movie={props.movie} onHide={props.onHide} />
       </Provider>
     </Route>
   </MemoryRouter>
@@ -27,7 +24,7 @@ const movie = {
   poster_path: '',
   title: 'title',
   release_date: new Date(2017, 1, 14),
-  genres: []
+  genres: [],
 };
 
 describe('MovieFormModal component', () => {
@@ -48,7 +45,6 @@ describe('MovieFormModal component', () => {
   //   userEvent.click(getByRole('button', { name: /Save/i }));
 
   //   //     rerender(getComponent(store, { ...props, genre: 'all' }));
-
 
   //   expect(updateMovie).toHaveBeenCalled();
 

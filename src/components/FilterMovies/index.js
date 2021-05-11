@@ -1,3 +1,3 @@
-import FilterMovies from './FilterMovies.jsx';
+import FilterMovies from './FilterMovies';
 
 export default FilterMovies;
