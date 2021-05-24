@@ -1,3 +1,3 @@
-import ListMovies from './ListMovies.jsx';
+import ListMovies from './ListMovies';
 
 export default ListMovies;

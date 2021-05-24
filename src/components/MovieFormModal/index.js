@@ -1,3 +1,3 @@
-import MovieFormModal from './MovieFormModal.jsx';
+import MovieFormModal from './MovieFormModal';
 
 export default MovieFormModal;

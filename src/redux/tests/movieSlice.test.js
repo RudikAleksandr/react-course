@@ -4,7 +4,7 @@ const reducer = moviesSlice.default;
 
 describe('movies slice', () => {
   test('should create an action to set a search', () => {
-    const payload = 'search'
+    const payload = 'search';
     const expectedAction = {
       payload,
       type: moviesSlice.setSearch.type,
@@ -14,7 +14,7 @@ describe('movies slice', () => {
   });
 
   test('should create an action to set a active movie genre', () => {
-    const payload = 'genre'
+    const payload = 'genre';
     const expectedAction = {
       payload,
       type: moviesSlice.setActiveMovieGenre.type,
@@ -24,7 +24,7 @@ describe('movies slice', () => {
   });
 
   test('should create an action to set a active sort type', () => {
-    const payload = 'sort'
+    const payload = 'sort';
     const expectedAction = {
       payload,
       type: moviesSlice.setActiveSortType.type,
@@ -39,12 +39,12 @@ describe('movies slice', () => {
       moviesOrder: [],
       search: '',
       activeMovieGenre: '',
-      activeSortType: 'release_date'
+      activeSortType: 'release_date',
     });
   });
 
   test('should handle setSearch', () => {
-    const payload = 'search'
+    const payload = 'search';
 
     expect(reducer({}, moviesSlice.setSearch(payload))).toEqual({
       search: payload,
@@ -52,7 +52,7 @@ describe('movies slice', () => {
   });
 
   test('should handle setActiveMovieGenre', () => {
-    const payload = 'genre'
+    const payload = 'genre';
 
     expect(reducer({}, moviesSlice.setActiveMovieGenre(payload))).toEqual({
       activeMovieGenre: payload,
@@ -60,7 +60,7 @@ describe('movies slice', () => {
   });
 
   test('should handle setActiveSortType', () => {
-    const payload = 'sort'
+    const payload = 'sort';
 
     expect(reducer({}, moviesSlice.setActiveSortType(payload))).toEqual({
       activeSortType: payload,
@@ -72,7 +72,7 @@ describe('movies slice', () => {
 
     expect(reducer({}, moviesSlice.getListMovies.fulfilled(payload))).toEqual({
       moviesOrder: ['id1', 'id2'],
-      movies: { id1: { id: 'id1' }, id2: { id: 'id2', } },
+      movies: { id1: { id: 'id1' }, id2: { id: 'id2' } },
     });
   });
 
@@ -83,4 +83,4 @@ describe('movies slice', () => {
       movies: { id1: payload },
     });
   });
-})
+});

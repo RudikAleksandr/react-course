@@ -1,10 +1,12 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, {
+  useCallback, useEffect, useMemo, useState,
+} from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import MovieCard from '../MovieCard';
 import cn from './ListMovies.module.css';
 import MovieFormModal from '../MovieFormModal';
 import MovieDeleteModal from '../MovieDeleteModal';
-import { useDispatch, useSelector } from 'react-redux';
 import { selectListMovies } from '../../redux/moviesSelectors';
 import { deleteMovie, getListMovies } from '../../redux/moviesSlice';
 
@@ -27,6 +29,7 @@ const ListMovies = ({ search, genre, sortBy }) => {
     }
   }, [dispatch, params]);
 
+  // PATTERN: memoization of callbacks
   const handleSelectOption = useCallback((movie) => (type) => {
     setSelectedOption({ movie, type });
   }, []);
@@ -49,6 +52,7 @@ const ListMovies = ({ search, genre, sortBy }) => {
       </Col>
       <Col>
         <div className={listMovies.length ? cn.listMovies : cn.noMovieFound}>
+          {/* PATTERN: Fragments */}
           {!!listMovies.length && listMovies.map((movie) => (
             <MovieCard
               onSelectOption={handleSelectOption(movie)}
@@ -61,20 +65,22 @@ const ListMovies = ({ search, genre, sortBy }) => {
           )}
         </div>
       </Col>
-      {selectedOption.type === "EDIT" &&
-        <MovieFormModal
-          movie={selectedOption.movie}
-          onHide={handleHideModal}
-        />
-      }
-      {selectedOption.type === "DELETE" &&
-        <MovieDeleteModal
-          onHide={handleHideModal}
-          onConfirm={handleConfirmDelete}
-        />
-      }
+      {selectedOption.type === 'EDIT'
+        && (
+          <MovieFormModal
+            movie={selectedOption.movie}
+            onHide={handleHideModal}
+          />
+        )}
+      {selectedOption.type === 'DELETE'
+        && (
+          <MovieDeleteModal
+            onHide={handleHideModal}
+            onConfirm={handleConfirmDelete}
+          />
+        )}
     </Row>
-  )
+  );
 };
 
 export default ListMovies;

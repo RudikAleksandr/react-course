@@ -7,5 +7,5 @@ export {
   FieldInput,
   Label,
   FieldDate,
-  FieldSelect
+  FieldSelect,
 };

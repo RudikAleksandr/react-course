@@ -1,4 +1,4 @@
-import axiosLibrary from "axios";
+import axiosLibrary from 'axios';
 
 const axios = axiosLibrary.create({
   withCredentials: false,

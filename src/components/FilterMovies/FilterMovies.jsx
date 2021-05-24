@@ -6,13 +6,15 @@ import cn from './FilterMovies.module.css';
 const movieTypes = ['all', 'documentary', 'comedy', 'horror', 'crime'];
 
 const FilterMovies = ({ activeType, onClickMovieGenre }) => {
+  // PATTERN: memoization of callbacks
   const handleClickMovieType = useCallback(({ target: { textContent } }) => {
     onClickMovieGenre(textContent);
   }, [onClickMovieGenre]);
 
-  const movieTypeButtons = movieTypes.map((movieType, index) => (
+  // PATTERN: Fragments
+  const movieTypeButtons = movieTypes.map((movieType) => (
     <Button
-      key={index}
+      key={movieType}
       variant=""
       onClick={handleClickMovieType}
       className={`${cn.filterButton} ${activeType === movieType ? cn.activeFilterButton : ''}`}
@@ -28,11 +30,15 @@ const FilterMovies = ({ activeType, onClickMovieGenre }) => {
       </Col>
     </Row>
   );
-}
+};
+
+FilterMovies.defaultProps = {
+  activeType: undefined,
+};
 
 FilterMovies.propTypes = {
   activeType: PropTypes.string,
-  onClickMovieGenre: PropTypes.func.isRequired
+  onClickMovieGenre: PropTypes.func.isRequired,
 };
 
 export default FilterMovies;

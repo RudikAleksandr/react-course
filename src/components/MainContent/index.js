@@ -1,3 +1,3 @@
-import MainContent from './MainContent.jsx';
+import MainContent from './MainContent';
 
 export default MainContent;

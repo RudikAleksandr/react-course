@@ -5,12 +5,12 @@ const routes = [
   {
     path: ['/', '/search', '/search:query'],
     exact: true,
-    component: Header
+    component: Header,
   },
   {
     path: '/film/:id',
     exact: true,
-    component: MovieDetails
+    component: MovieDetails,
   },
 ];
 

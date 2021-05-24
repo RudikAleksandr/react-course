@@ -7,32 +7,32 @@ export const initialState = {
   moviesOrder: [],
   search: '',
   activeMovieGenre: '',
-  activeSortType: 'release_date'
+  activeSortType: 'release_date',
 };
 
 export const getListMovies = createAsyncThunk(
   'movies/getListMovies',
-  moviesAPI.getListMovies
+  moviesAPI.getListMovies,
 );
 
 export const getMovie = createAsyncThunk(
   'movies/getMovie',
-  moviesAPI.getMovie
+  moviesAPI.getMovie,
 );
 
 export const updateMovie = createAsyncThunk(
   'movies/updateMovie',
-  moviesAPI.updateMovie
+  moviesAPI.updateMovie,
 );
 
 export const createMovie = createAsyncThunk(
   'movies/createMovie',
-  moviesAPI.createMovie
+  moviesAPI.createMovie,
 );
 
 export const deleteMovie = createAsyncThunk(
   'movies/deleteMovie',
-  moviesAPI.deleteMovie
+  moviesAPI.deleteMovie,
 );
 
 const moviesSlice = createSlice({
@@ -47,7 +47,7 @@ const moviesSlice = createSlice({
     },
     setActiveSortType: (state, { payload }) => {
       state.activeSortType = payload;
-    }
+    },
   },
   extraReducers: {
     [getListMovies.fulfilled]: (state, { payload }) => {
@@ -63,7 +63,7 @@ const moviesSlice = createSlice({
 export const {
   setSearch,
   setActiveMovieGenre,
-  setActiveSortType
+  setActiveSortType,
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

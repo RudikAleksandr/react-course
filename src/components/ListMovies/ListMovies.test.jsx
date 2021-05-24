@@ -1,22 +1,21 @@
-
 import { render } from '@testing-library/react';
-import ListMovies from './ListMovies';
-import configureStore from 'redux-mock-store'
+import configureStore from 'redux-mock-store';
 import { MemoryRouter, Route } from 'react-router';
-import { getListMovies } from '../../redux/moviesSlice';
 import * as reactRedux from 'react-redux';
 import * as React from 'react';
+import { getListMovies } from '../../redux/moviesSlice';
+import ListMovies from './ListMovies';
 
 jest.mock('../../redux/moviesSlice');
 jest.mock('../../redux/moviesSelectors', () => ({
-  selectListMovies: () => []
+  selectListMovies: () => [],
 }));
 
 const getComponent = (store, props) => (
   <MemoryRouter>
     <Route>
       <reactRedux.Provider store={store}>
-        <ListMovies {...props} />
+        <ListMovies search={props.search} genre={props.genre} sortBy={props.sortBy} />
       </reactRedux.Provider>
     </Route>
   </MemoryRouter>
@@ -34,7 +33,7 @@ describe('ListMovies component', () => {
   test('should call getListMovies on change prop', () => {
     const store = configureStore()();
     const props = {
-      search: 'search', genre: 'genre', sortBy: 'sortBy'
+      search: 'search', genre: 'genre', sortBy: 'sortBy',
     };
     jest.spyOn(reactRedux, 'useDispatch').mockReturnValue(jest.fn());
 
@@ -58,7 +57,6 @@ describe('ListMovies component', () => {
       searchBy: 'title',
       filter: '',
     });
-
   });
 
   // test('should call setSelectedOption', () => {

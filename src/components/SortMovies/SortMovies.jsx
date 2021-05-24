@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react';
-import { Row, Dropdown, DropdownButton, ButtonGroup } from 'react-bootstrap';
+import {
+  Row, Dropdown, DropdownButton, ButtonGroup,
+} from 'react-bootstrap';
 import PropTypes from 'prop-types';
 import cn from './SortMovies.module.css';
 
@@ -14,22 +16,23 @@ const sortTypes = [{
 {
   label: 'release date',
   value: 'release_date',
-}]
+}];
 
-const sortTypeItems = sortTypes.map(({ label, value }, index) => (
+// PATTERN: Fragments
+const sortTypeItems = sortTypes.map(({ label, value }) => (
   <Dropdown.Item
     className={cn.sortTypeItem}
     key={value}
-    eventKey={value}>
+    eventKey={value}
+  >
     {label}
   </Dropdown.Item>
 ));
 
 const SortMovies = ({ activeType, onSelectSortType }) => {
-
-  const title = useMemo(() => {
-    return sortTypes.find(({ value }) => value === activeType).label
-  }, [activeType]);
+  const title = useMemo(() => sortTypes.find(
+    ({ value }) => value === activeType,
+  ).label, [activeType]);
 
   return (
     <Row className={`align-items-center justify-content-end ${cn.sortMovies}`}>
@@ -45,11 +48,15 @@ const SortMovies = ({ activeType, onSelectSortType }) => {
       </DropdownButton>
     </Row>
   );
-}
+};
+
+SortMovies.defaultProps = {
+  activeType: undefined,
+};
 
 SortMovies.propTypes = {
   activeType: PropTypes.string,
-  onSelectSortType: PropTypes.func.isRequired
+  onSelectSortType: PropTypes.func.isRequired,
 };
 
 export default SortMovies;

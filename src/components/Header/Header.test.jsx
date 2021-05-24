@@ -1,11 +1,11 @@
-
+import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter, Route } from 'react-router';
-import { Provider } from 'react-redux'
-import Header from './Header';
-import configureStore from 'redux-mock-store'
-import { initialState } from '../../redux/moviesSlice';
+import { Provider } from 'react-redux';
+import configureStore from 'redux-mock-store';
 import userEvent from '@testing-library/user-event';
+import Header from './Header';
+import { initialState } from '../../redux/moviesSlice';
 
 const getComponent = (store) => (
   <MemoryRouter>
